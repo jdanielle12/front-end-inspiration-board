@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import Board from './Board';
 
 const BoardList = (props) => {
+    console.log(props.boards);
     return (
         <ul>
             {props.boards.map((board) => (
@@ -15,7 +16,6 @@ const BoardList = (props) => {
             ))}
         </ul>
     )
-
 };
 
 BoardList.propTypes = {
