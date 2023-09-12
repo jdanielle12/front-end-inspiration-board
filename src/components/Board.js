@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const Board = (props) => {
-    console.log(props.id);
     return (
         <div>
             <h2>{props.title}</h2>
