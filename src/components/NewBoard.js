@@ -9,6 +9,7 @@ const NewBoard = (props) => {
 
     const sumbitFormData = (event) => {
         event.preventDefault();
+        console.log(formData);
         props.addNewBoard(formData);
         setFormData({
             title: '',

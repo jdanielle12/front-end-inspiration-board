@@ -31,8 +31,9 @@ const addNewBoard = (formData) => {
   axios
   .post(`${url}/boards`, formData)
   .then((response) => {
+    console.log(response);
     let newBoard = {
-      id: response.data.id,
+      id: response.data.board.id,
       title: formData.title,
       description: formData.description
     }
