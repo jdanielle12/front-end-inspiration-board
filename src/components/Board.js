@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { useState } from 'react';
+import './Board.css';
 
 const Board = (props) => {
     const [isEditing, setEditing] = useState(false);
@@ -22,7 +23,8 @@ const Board = (props) => {
     };
 
     return (
-        <div>
+        <div className="board-container">
+            <div className='board'></div>
             <h2>{props.title}</h2>
             <p>{props.description}</p>
             {isEditing && (
