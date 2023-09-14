@@ -31,7 +31,6 @@ const addNewBoard = (formData) => {
   axios
   .post(`${url}/boards`, formData)
   .then((response) => {
-    console.log(response);
     let newBoard = {
       id: response.data.board.id,
       title: formData.title,
@@ -43,10 +42,26 @@ const addNewBoard = (formData) => {
     console.log(error);
   })
 };
+
+const deleteBoard = (boardId) => {
+  axios
+  .delete(`${url}/boards/${boardId}`)
+  .then(() => {
+      let newBoardArray = boards.filter((board) => board.id !== boardId);
+      console.log(boardId);
+      console.log(newBoardArray);
+      setBoards(newBoardArray);
+  })
+  .catch((error) => {
+    console.log(error);
+  })
+};
+
   return (
     <div className="App">
       <BoardList 
-      boards={boards}/>
+      boards={boards}
+      deleteBoard={deleteBoard}/>
       <NewBoard 
       addNewBoard={addNewBoard}/>
     </div>
