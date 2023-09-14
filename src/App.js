@@ -48,9 +48,28 @@ const deleteBoard = (boardId) => {
   .delete(`${url}/boards/${boardId}`)
   .then(() => {
       let newBoardArray = boards.filter((board) => board.id !== boardId);
-      console.log(boardId);
-      console.log(newBoardArray);
       setBoards(newBoardArray);
+  })
+  .catch((error) => {
+    console.log(error);
+  })
+};
+
+const editBoard = (boardId, updatedData) => {
+  axios
+  .put(`${url}/boards/${boardId}`, updatedData)
+  .then((response) => {
+    console.log(response);
+    setBoards((prevBoards) => {
+      return prevBoards.map((board) => {
+        if (board.id === boardId){
+          return {
+            ...board, title: updatedData.title, description: updatedData.description
+          }
+        }
+        return board
+      }
+    )})
   })
   .catch((error) => {
     console.log(error);
@@ -61,7 +80,8 @@ const deleteBoard = (boardId) => {
     <div className="App">
       <BoardList 
       boards={boards}
-      deleteBoard={deleteBoard}/>
+      deleteBoard={deleteBoard}
+      editBoard={editBoard}/>
       <NewBoard 
       addNewBoard={addNewBoard}/>
     </div>

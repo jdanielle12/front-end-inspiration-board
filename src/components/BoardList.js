@@ -13,6 +13,7 @@ const BoardList = (props) => {
                 title={board.title}
                 description={board.description}
                 deleteBoard={props.deleteBoard}
+                editBoard={props.editBoard}
                 />
             ))}
         </ul>
@@ -28,6 +29,7 @@ BoardList.propTypes = {
         })
     ).isRequired,
     deleteBoard: PropTypes.func.isRequired,
+    editBoard: PropTypes.func.isRequired,
 };
 
 export default BoardList;
