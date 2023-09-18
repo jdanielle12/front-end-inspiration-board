@@ -1,11 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Board from './Board';
+import './BoardList.css';
 
 const BoardList = (props) => {
-    console.log(props.boards);
     return (
-        <ul>
+        <ul className='board-list'>
             {props.boards.map((board) => (
                 <Board
                 key={board.id}

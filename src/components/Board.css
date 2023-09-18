@@ -1,11 +1,51 @@
 .board-container{
-    border: 2px solid black;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    flex-flow: row;
+    padding: 0;
+    margin: 0;
+    column-gap: 10px;
+    border: 2px solid rgb(97, 128, 239);
     background-color: paleturquoise;
-    padding: 1rem 1rem 4rem;
-    filter: drop-shadow(16px 16px 10px);
+    /* padding: 1rem 1rem 4rem; */
+    filter: drop-shadow(16px 16px 10px rgb(89, 111, 236));
     border-radius: 7px;
     list-style-type: none;
     cursor: pointer;
     transition: all .2s ease-in-out;
     max-width: 350px;
 }
+
+.board{
+    /* background: black; */
+    /* padding: 5px; */
+    /* width: 200px; */
+    height: 150px;
+    margin-top: 10px;
+    line-height: 150px;
+    color: black;
+    font-weight: bold;
+    font-size: 3em;
+    text-align: center;
+    justify-content: space-evenly;
+    cursor: pointer;
+    flex-flow: row;
+}
+
+.button-container{
+    padding: 1px;
+    align-content: center;
+}
+
+.edit-button{
+
+}
+
+.delete-button{
+    
+}
+/* .text{
+    /* justify-content: center;
+    align-content: center; */
+/* } */ 

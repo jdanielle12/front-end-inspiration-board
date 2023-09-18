@@ -1,3 +1,19 @@
+html {
+  background: linear-gradient(217deg, rgba(107, 177, 252, .8), rgba(244, 219, 78, 0) 70.71%),
+              linear-gradient(336deg, rgba(216, 112, 147, .8), rgba(216, 112, 147, 0) 70.71%);
+  background-repeat: no-repeat;
+  height: 100%;
+}
+
+.mood-board, .board-title {
+  font-family: 'Shadows Into Light Two', cursive;
+}
+
+.board-description {
+  font-family: 'Dosis', sans-serif;
+  font-size: 1rem;
+}
+
 .App {
   text-align: center;
 }

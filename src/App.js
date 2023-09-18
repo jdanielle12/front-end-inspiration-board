@@ -3,6 +3,8 @@ import './App.css';
 import axios from 'axios';
 import BoardList from './components/BoardList';
 import NewBoard from './components/NewBoard';
+import CardList from './components/CardList';
+import NewCard from './components/NewCard';
 
 
 const url = "http://localhost:5000";
@@ -76,14 +78,99 @@ const editBoard = (boardId, updatedData) => {
   })
 };
 
+const [cards, setCards] = useState([])
+
+useEffect(() => {
+  axios
+  .get(`${url}/cards`)
+  .then((response) => {
+    let cardArray = response.data.map((card) => ({
+      id: card.id,
+      title: card.title,
+      description: card.description
+    }));
+    setBoards(cardArray);
+  })
+  .catch((error) => {
+    console.log(error);
+  })
+}, []);
+
+const addNewCard = (formData) => {
+  axios
+  .post(`${url}/cards`, formData)
+  .then((response) => {
+    let newCard = {
+      id: response.data.card.id,
+      title: formData.title,
+      description: formData.description
+    }
+    setBoards([...cards, newCard]);
+  })
+  .catch((error) => {
+    console.log(error);
+  })
+};
+
+const deleteCard = (cardId) => {
+  axios
+  .delete(`${url}/cards/${cardId}`)
+  .then(() => {
+      let newCardArray = cards.filter((card) => card.id !== cardId);
+      setCards(newCardArray);
+  })
+  .catch((error) => {
+    console.log(error);
+  })
+};
+
+const editCard = (cardId, updatedData) => {
+  axios
+  .put(`${url}/cards/${cardId}`, updatedData)
+  .then((response) => {
+    console.log(response);
+    setCards((prevCards) => {
+      return prevCards.map((card) => {
+        if (card.id === cardId){
+          return {
+            ...card, title: updatedData.title, description: updatedData.description
+          }
+        }
+        return card
+      }
+    )})
+  })
+  .catch((error) => {
+    console.log(error);
+  })
+};
+
   return (
     <div className="App">
-      <BoardList 
-      boards={boards}
-      deleteBoard={deleteBoard}
-      editBoard={editBoard}/>
-      <NewBoard 
-      addNewBoard={addNewBoard}/>
+      <head>
+        <link href="https://fonts.googleapis.com/css2?family=Shadows+Into+Light+Two&display=swap" rel="stylesheet"/>
+        <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@300&display=swap" rel="stylesheet"/>
+      </head>
+      <header>
+        <h1 className='mood-board'>Mood Board</h1>
+        <nav>
+          
+        </nav>
+      </header>
+      <main>
+        <BoardList 
+        boards={boards}
+        deleteBoard={deleteBoard}
+        editBoard={editBoard}/>
+        <NewBoard 
+        addNewBoard={addNewBoard}/>
+        <CardList 
+        cards={cards}
+        deleteCard={deleteCard}
+        editCard={editCard}/>
+        <NewCard 
+        addNewCard={addNewCard}/>
+      </main>
     </div>
   );
 };

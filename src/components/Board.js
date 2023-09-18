@@ -25,8 +25,8 @@ const Board = (props) => {
     return (
         <div className="board-container">
             <div className='board'></div>
-            <h2>{props.title}</h2>
-            <p>{props.description}</p>
+            <h2 className='board-title'>{props.title}</h2>
+            <p className='board-description'>{props.description}</p>
             {isEditing && (
                 <>
                     <input type="text" name="title" value={title} onChange={(event) => setTitle(event.target.value)}></input>

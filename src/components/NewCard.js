@@ -1,19 +1,18 @@
-import React, { useState } from "react";
+import React, {useState} from "react";
 import PropTypes from 'prop-types';
 
-const NewBoard = (props) => {
+const NewCard = (props) => {
     const [formData, setFormData] = useState({
         title: '',
         description: ''
     });
-
+    
     const sumbitFormData = (event) => {
         event.preventDefault();
-        props.addNewBoard(formData);
+        props.addNewCard(formData);
         setFormData({
             title: '',
             description: ''})
-        
     };
 
     const onFormChange = (event) => {
@@ -30,13 +29,13 @@ const NewBoard = (props) => {
                 <label htmlFor="description">Enter your description:</label>
                 <input type="text" name="description" value={formData.description} onChange={onFormChange}></input>
             </div>
-            <button type="submit">That's all folks!</button>
+            <button type="submit">Submit Changes</button>
         </form>
     );
 };
 
-NewBoard.propTypes = {
-    addNewBoard: PropTypes.func.isRequired
+NewCard.propTypes = {
+    addNewCard: PropTypes.func.isRequired,
 };
 
-export default NewBoard;
+export default NewCard;
