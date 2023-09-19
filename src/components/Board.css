@@ -17,35 +17,18 @@
     max-width: 350px;
 }
 
-.board{
-    /* background: black; */
-    /* padding: 5px; */
-    /* width: 200px; */
-    height: 150px;
-    margin-top: 10px;
-    line-height: 150px;
-    color: black;
-    font-weight: bold;
-    font-size: 3em;
-    text-align: center;
-    justify-content: space-evenly;
-    cursor: pointer;
-    flex-flow: row;
-}
-
 .button-container{
     padding: 1px;
     align-content: center;
 }
 
-.edit-button{
-
+.edit-fields {
+    max-width: 350px;
 }
 
-.delete-button{
-    
-}
-/* .text{
-    /* justify-content: center;
-    align-content: center; */
-/* } */ 
+/* .button-container.edit-button {
+    background-image: url('/public/editicon.png');
+    background-size: cover;
+    height: 20px;
+    width: 20px;
+} */

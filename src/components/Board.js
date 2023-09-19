@@ -22,21 +22,28 @@ const Board = (props) => {
         setEditing(true);
     };
 
+    const showCards = () => {
+        props.getAllCards(props.id);
+    };
+
     return (
         <div className="board-container">
             <div className='board'></div>
             <h2 className='board-title'>{props.title}</h2>
             <p className='board-description'>{props.description}</p>
             {isEditing && (
-                <>
+                <div className='edit-fields'>
                     <input type="text" name="title" value={title} onChange={(event) => setTitle(event.target.value)}></input>
                     <input type="text" name="description" value={description} onChange={(event) => setDescription(event.target.value)}></input>
                     <button className="edit-button" onClick={editedBoard}>Save Changes</button>
-                </>
+                </div>
             )}
             <div className="button-container">
                 <button className="delete-button" onClick={deletedBoard}>Delete</button>
                 <button className="edit-button" onClick={editClick}>Edit</button>
+            </div>
+            <div className='show-cards-button-container'>
+                <button className='show-cards-button' onClick={showCards}>Show Cards</button>
             </div>
         </div>
     )
@@ -48,6 +55,7 @@ Board.propTypes = {
     description: PropTypes.string.isRequired,
     deleteBoard: PropTypes.func.isRequired,
     editBoard: PropTypes.func.isRequired,
+    getAllCards: PropTypes.func.isRequired,
 };
 
 export default Board;

@@ -11,7 +11,10 @@ const url = "http://localhost:5000";
 
 
 function App() {
-  const [boards, setBoards] = useState([])
+  const [boards, setBoards] = useState([]);
+  const [addBoardButton, setBoardButton] = useState(false);
+  const [cards, setCards] = useState([]);
+  const [selectedBoardId, setBoardId] = useState(0);
 
   useEffect(() => {
     axios
@@ -39,6 +42,7 @@ const addNewBoard = (formData) => {
       description: formData.description
     }
     setBoards([...boards, newBoard]);
+    setBoardButton(false);
   })
   .catch((error) => {
     console.log(error);
@@ -78,34 +82,37 @@ const editBoard = (boardId, updatedData) => {
   })
 };
 
-const [cards, setCards] = useState([])
-
-useEffect(() => {
+const getAllCards = (boardId) => {
   axios
-  .get(`${url}/cards`)
+  .get(`${url}/boards/${boardId}/cards`)
   .then((response) => {
     let cardArray = response.data.map((card) => ({
       id: card.id,
       title: card.title,
       description: card.description
     }));
-    setBoards(cardArray);
+    setCards(cardArray);
+    setBoardId(boardId);
   })
   .catch((error) => {
     console.log(error);
   })
-}, []);
+};
 
 const addNewCard = (formData) => {
+  console.log(formData);
+  console.log(selectedBoardId);
   axios
-  .post(`${url}/cards`, formData)
+  .post(`${url}/boards/${selectedBoardId}/cards`, formData)
   .then((response) => {
     let newCard = {
-      id: response.data.card.id,
-      title: formData.title,
-      description: formData.description
+      id: response.data.card.card_id,
+      title: response.data.card.title,
+      description: response.data.card.description,
+      like_count: response.data.card.like_count,
+      board_id: response.data.card.board_id
     }
-    setBoards([...cards, newCard]);
+    setCards([...cards, newCard]);
   })
   .catch((error) => {
     console.log(error);
@@ -145,25 +152,26 @@ const editCard = (cardId, updatedData) => {
   })
 };
 
+const addBoardBool = () => {
+  addBoardButton ? setBoardButton(false): setBoardButton(true);
+};
+
   return (
     <div className="App">
-      <head>
-        <link href="https://fonts.googleapis.com/css2?family=Shadows+Into+Light+Two&display=swap" rel="stylesheet"/>
-        <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@300&display=swap" rel="stylesheet"/>
-      </head>
       <header>
         <h1 className='mood-board'>Mood Board</h1>
         <nav>
-          
+          <button className='add-new-board-button' onClick={addBoardBool}>Add Board</button>
         </nav>
       </header>
       <main>
+        {addBoardButton && <NewBoard 
+        addNewBoard={addNewBoard}/>}
         <BoardList 
         boards={boards}
         deleteBoard={deleteBoard}
-        editBoard={editBoard}/>
-        <NewBoard 
-        addNewBoard={addNewBoard}/>
+        editBoard={editBoard}
+        getAllCards={getAllCards}/>
         <CardList 
         cards={cards}
         deleteCard={deleteCard}

@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Dosis:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Dosis:wght@300&family=Shadows+Into+Light+Two&display=swap');
+
 html {
   background: linear-gradient(217deg, rgba(107, 177, 252, .8), rgba(244, 219, 78, 0) 70.71%),
               linear-gradient(336deg, rgba(216, 112, 147, .8), rgba(216, 112, 147, 0) 70.71%);

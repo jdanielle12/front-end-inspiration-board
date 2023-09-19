@@ -14,6 +14,7 @@ const BoardList = (props) => {
                 description={board.description}
                 deleteBoard={props.deleteBoard}
                 editBoard={props.editBoard}
+                getAllCards={props.getAllCards}
                 />
             ))}
         </ul>
@@ -30,6 +31,7 @@ BoardList.propTypes = {
     ).isRequired,
     deleteBoard: PropTypes.func.isRequired,
     editBoard: PropTypes.func.isRequired,
+    getAllCards: PropTypes.func.isRequired,
 };
 
 export default BoardList;
