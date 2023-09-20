@@ -197,6 +197,9 @@ const addBoardBool = () => {
         editCard={editCard}
         likeCard={likeCard}/>
       </main>
+      <footer>
+        <span className='copy-right'>&copy; Jamie McGraner 2023</span>
+      </footer>
     </div>
   );
 };

@@ -32,6 +32,8 @@ html {
 
 .App {
   text-align: center;
+  position: relative;
+  min-height: 100vh;
 }
 
 .App-logo {
@@ -45,7 +47,7 @@ html {
   }
 }
 
-.App-header {
+/* .App-header {
   background-color: #282c34;
   min-height: 100vh;
   display: flex;
@@ -54,7 +56,7 @@ html {
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
-}
+} */
 
 .App-link {
   color: #61dafb;
@@ -67,4 +69,17 @@ html {
   to {
     transform: rotate(360deg);
   }
+}
+
+main {
+  padding-bottom: 2.5rem;
+}
+
+footer {
+  text-align: center;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2.5rem;
 }
