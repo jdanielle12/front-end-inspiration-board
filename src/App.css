@@ -10,11 +10,11 @@ html {
   height: 100vh;
 }
 
-.mood-board, .board-title {
+.mood-board, .board-title, .card-title {
   font-family: 'Shadows Into Light Two', cursive;
 }
 
-.board-description {
+.board-description, .card-description {
   font-family: 'Dosis', sans-serif;
   font-size: 1rem;
 }

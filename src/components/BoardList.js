@@ -16,6 +16,7 @@ const BoardList = (props) => {
                 editBoard={props.editBoard}
                 getAllCards={props.getAllCards}
                 addNewCard={props.addNewCard}
+                sortCards={props.sortCards}
                 />
             ))}
         </ul>
@@ -34,6 +35,7 @@ BoardList.propTypes = {
     editBoard: PropTypes.func.isRequired,
     getAllCards: PropTypes.func.isRequired,
     addNewCard: PropTypes.func.isRequired,
+    sortCards: PropTypes.func.isRequired,
 };
 
 export default BoardList;

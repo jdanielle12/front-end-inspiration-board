@@ -85,3 +85,20 @@
     padding: 4%;
     margin: 2%;
 }
+
+.card-sort-button {
+    background: url('/public/circle-ellipsis-vertical.png');
+    background-size: 1rem 1rem 4rem;
+    background-position: center;
+    background-repeat: no-repeat;
+    border: 0;
+    height: 30px;
+    width: 30px;
+    padding: 4%;
+    margin: 2%;
+}
+
+select {
+    -webkit-appearance: none;
+    width: 50px;
+}

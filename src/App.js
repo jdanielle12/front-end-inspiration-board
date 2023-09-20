@@ -170,6 +170,22 @@ const likeCard = (cardId, endpoint) => {
   })
 };
 
+const sortCards = (sort) => {
+  console.log(sort);
+  // const boardVar = valueOf(selectedBoardId);
+  axios
+  .get(`${url}/cards?sort=${sort}`)
+  .then((response) => {
+    console.log(response);
+    const newCardArray = response.data.filter((card) => card.board_id === selectedBoardId);
+    console.log(newCardArray);
+    setCards(newCardArray);
+  })
+  .catch((error) => {
+    console.log(error);
+  })
+};
+
 const addBoardBool = () => {
   addBoardButton ? setBoardButton(false): setBoardButton(true);
 };
@@ -190,7 +206,8 @@ const addBoardBool = () => {
         deleteBoard={deleteBoard}
         editBoard={editBoard}
         getAllCards={getAllCards}
-        addNewCard={addNewCard}/>
+        addNewCard={addNewCard}
+        sortCards={sortCards}/>
         <CardList 
         cards={cards}
         deleteCard={deleteCard}

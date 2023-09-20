@@ -34,6 +34,10 @@ const Board = (props) => {
         setAddingCard(!addingCard);
     };
 
+    // const sortCardsHandler = (sort) => {
+    //     props.sortCards(sort);
+    // };
+
     return (
         <div className="board-container">
             <div className='board'></div>
@@ -52,7 +56,13 @@ const Board = (props) => {
             </div>
             <div className='show-cards-button-container'>
                 <button className='show-cards-button' onClick={showCards}></button>
-                {cardDisplay && <button className='add-card-button' onClick={addCardButton}></button>}
+                {cardDisplay && 
+                <select className='card-sort-button' name="cards" id="card-select" onChange={(event) => {props.sortCards(event.target.value)}}>
+                    <option value={"asc"}>Title A-Z</option>
+                    <option value={"desc"}>Title Z-A</option>
+                </select>}
+                {cardDisplay && 
+                <button className='add-card-button' onClick={addCardButton}></button>}
                 {addingCard && <NewCard 
                 addNewCard={props.addNewCard}/>}
             </div>
@@ -68,6 +78,7 @@ Board.propTypes = {
     editBoard: PropTypes.func.isRequired,
     getAllCards: PropTypes.func.isRequired,
     addNewCard: PropTypes.func.isRequired,
+    sortCards: PropTypes.func.isRequired,
 };
 
 export default Board;

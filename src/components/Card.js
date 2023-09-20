@@ -33,8 +33,8 @@ const Card = (props) => {
 
     return (
         <div className="card-container">
-            <h2>{props.title}</h2>
-            <p>{props.description}</p>
+            <h2 className="card-title">{props.title}</h2>
+            <p className="card-description">{props.description}</p>
             {isEditing && (
                 <>
                 <input type="text" name="title" value={title} onChange={(event) => setTitle(event.target.value)}></input>
