@@ -43,16 +43,16 @@ const Board = (props) => {
                 <div className='edit-fields'>
                     <input type="text" name="title" value={title} onChange={(event) => setTitle(event.target.value)}></input>
                     <input type="text" name="description" value={description} onChange={(event) => setDescription(event.target.value)}></input>
-                    <button className="edit-button" onClick={editedBoard}>Save Changes</button>
+                    <button className="edit-board-button" onClick={editedBoard}></button>
                 </div>
             )}
             <div className="button-container">
-                <button className="delete-button" onClick={deletedBoard}>Delete</button>
-                <button className="edit-button" onClick={editClick}>Edit</button>
+                <button className="board-delete-button" onClick={deletedBoard}></button>
+                <button className="board-edit-button" onClick={editClick}></button>
             </div>
             <div className='show-cards-button-container'>
-                <button className='show-cards-button' onClick={showCards}>Show Cards</button>
-                {cardDisplay && <button className='add-card-button' onClick={addCardButton}>Add Card</button>}
+                <button className='show-cards-button' onClick={showCards}></button>
+                {cardDisplay && <button className='add-card-button' onClick={addCardButton}></button>}
                 {addingCard && <NewCard 
                 addNewCard={props.addNewCard}/>}
             </div>

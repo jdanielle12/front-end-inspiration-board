@@ -11,21 +11,62 @@
 }
 
 .edit-card-button {
-
+    /* background-image: url(/public/editicon.png); */
+    background-size: 1rem 1rem 4rem;
+    width: max-content;
+    background: url('/public/approvelarge.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    margin: 0px;
+    padding: 4%;
+    border: 0;
 }
 
-.card-button-container.edit-button {
-
+.edit-button {
+    background-size: 1rem 1rem 4rem;
+    width: max-content;
+    background: url('/public/edit.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    margin: 0px;
+    padding: 4%;
+    border: 0;
 }
 
-.card-button-container.delete-button {
-
+.delete-button {
+    background-size: 1rem 1rem 4rem;
+    width: max-content;
+    background: url('/public/trash.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    margin: 0px;
+    padding: 4%;
+    border: 0;
 }
 
-.like-count-display.like-count {
-
+.like-count {
+    background-size: 1rem 1rem 4rem;
+    width: max-content;
+    background: url('/public/heartfilled.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    margin: 0px;
+    padding: 4%;
+    border: 0;
 }
 
-.like-count-display.unlike-count {
-
+.unlike-count {
+    background-size: 1rem 1rem 4rem;
+    width: max-content;
+    background: url('/public/heart-crack.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    margin: 0px;
+    padding: 4%;
+    border: 0;
 }

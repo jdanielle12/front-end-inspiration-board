@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import { useState } from "react";
 import './Card.css';
 
+
 const Card = (props) => {
     const [isEditing, setEditing] = useState(false);
     const [title, setTitle] = useState(props.title);
@@ -38,17 +39,17 @@ const Card = (props) => {
                 <>
                 <input type="text" name="title" value={title} onChange={(event) => setTitle(event.target.value)}></input>
                 <input type="text" name="description" value={description} onChange={(event) => setDescription(event.target.value)}></input>
-                <button className="edit-card-button" onClick={editedCard}>Save Changes</button>
+                <button className="edit-card-button" onClick={editedCard}></button>
                 </>
             )}
             <div className="card-button-container">
-                <button className="edit-button" onClick={editClick}>Edit</button>
-                <button className="delete-button" onClick={deletedCard}>Delete</button>
+                <button className="edit-button" onClick={editClick}></button>
+                <button className="delete-button" onClick={deletedCard}></button>
             </div>
             <div className="like-count-display">
-                <button className="like-count" onClick={likeButton}>Like</button>
+                <button className="like-count" onClick={likeButton}></button>
                 <p>{props.like_count}</p>
-                <button className="unlike-count" onClick={unlikeButton}>Unlike</button>
+                <button className="unlike-count" onClick={unlikeButton}></button>
             </div>
         </div>
     )

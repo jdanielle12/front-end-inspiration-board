@@ -179,7 +179,7 @@ const addBoardBool = () => {
       <header>
         <h1 className='mood-board'>Mood Board</h1>
         <nav>
-          <button className='add-new-board-button' onClick={addBoardBool}>Add Board</button>
+          <button className='add-new-board-button' onClick={addBoardBool}></button>
         </nav>
       </header>
       <main>

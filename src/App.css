@@ -19,6 +19,17 @@ html {
   font-size: 1rem;
 }
 
+.add-new-board-button {
+  background-size: 1rem 1rem 4rem;
+    width: max-content;
+    background: url('/public/square-plus.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    margin: 0px;
+    padding: 4%;
+    border: 0;
+}
+
 .App {
   text-align: center;
 }

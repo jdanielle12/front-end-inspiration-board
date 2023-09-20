@@ -26,9 +26,62 @@
     max-width: 350px;
 }
 
-/* .button-container.edit-button {
-    background-image: url('/public/editicon.png');
-    background-size: cover;
+.board-edit-button {
+    background: url('/public/edit.png');
+    background-size: 1rem 1rem 4rem;
+    background-position: center;
+    background-repeat: no-repeat;
+    border: 0;
     height: 20px;
     width: 20px;
-} */
+    padding: 4%;
+    margin: 0;
+}
+
+.board-delete-button {
+    background: url('/public/trash.png');
+    background-size: 1rem 1rem 4rem;
+    background-position: center;
+    background-repeat: no-repeat;
+    border: 0;
+    height: 20px;
+    width: 20px;
+    padding: 4%;
+    margin: 0;
+}
+
+.show-cards-button {
+    background: url('/public/folder-open.png');
+    background-size: 1rem 1rem 4rem;
+    background-position: center;
+    background-repeat: no-repeat;
+    border: 0;
+    height: 20px;
+    width: 25px;
+    padding: 4%;
+    margin: 0;
+}
+
+.edit-board-button {
+    background: url('/public/approvelarge.png');
+    background-size: 1rem 1rem 4rem;
+    background-position: center;
+    background-repeat: no-repeat;
+    border: 0;
+    height: 20px;
+    width: 20px;
+    padding: 4%;
+    margin: 0;
+}
+
+.add-card-button {
+    background: url('/public/square-plus.png');
+    background-size: 1rem 1rem 4rem;
+    background-position: center;
+    background-repeat: no-repeat;
+    border: 0;
+    height: 30px;
+    width: 30px;
+    padding: 4%;
+    margin: 2%;
+}
