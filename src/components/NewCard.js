@@ -29,7 +29,7 @@ const NewCard = (props) => {
                 <label htmlFor="description">Enter your description:</label>
                 <input type="text" name="description" value={formData.description} onChange={onFormChange}></input>
             </div>
-            <button type="submit">Submit Changes</button>
+            <button type="submit">Submit Card</button>
         </form>
     );
 };

@@ -1,12 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { useState } from 'react';
+import NewCard from './NewCard';
 import './Board.css';
 
 const Board = (props) => {
     const [isEditing, setEditing] = useState(false);
     const [title, setTitle] = useState(props.title);
     const [description, setDescription] = useState(props.description);
+    const [cardDisplay, setCardDisplay] = useState(false);
+    const [addingCard, setAddingCard] = useState(false);
 
     const deletedBoard = () => {
         props.deleteBoard(props.id);
@@ -24,6 +27,11 @@ const Board = (props) => {
 
     const showCards = () => {
         props.getAllCards(props.id);
+        setCardDisplay(true);
+    };
+
+    const addCardButton = () => {
+        setAddingCard(!addingCard);
     };
 
     return (
@@ -44,6 +52,9 @@ const Board = (props) => {
             </div>
             <div className='show-cards-button-container'>
                 <button className='show-cards-button' onClick={showCards}>Show Cards</button>
+                {cardDisplay && <button className='add-card-button' onClick={addCardButton}>Add Card</button>}
+                {addingCard && <NewCard 
+                addNewCard={props.addNewCard}/>}
             </div>
         </div>
     )
@@ -56,6 +67,7 @@ Board.propTypes = {
     deleteBoard: PropTypes.func.isRequired,
     editBoard: PropTypes.func.isRequired,
     getAllCards: PropTypes.func.isRequired,
+    addNewCard: PropTypes.func.isRequired,
 };
 
 export default Board;

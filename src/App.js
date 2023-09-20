@@ -4,7 +4,6 @@ import axios from 'axios';
 import BoardList from './components/BoardList';
 import NewBoard from './components/NewBoard';
 import CardList from './components/CardList';
-import NewCard from './components/NewCard';
 
 
 const url = "http://localhost:5000";
@@ -65,7 +64,6 @@ const editBoard = (boardId, updatedData) => {
   axios
   .put(`${url}/boards/${boardId}`, updatedData)
   .then((response) => {
-    console.log(response);
     setBoards((prevBoards) => {
       return prevBoards.map((board) => {
         if (board.id === boardId){
@@ -87,9 +85,11 @@ const getAllCards = (boardId) => {
   .get(`${url}/boards/${boardId}/cards`)
   .then((response) => {
     let cardArray = response.data.map((card) => ({
-      id: card.id,
+      id: card.card_id,
       title: card.title,
-      description: card.description
+      description: card.description,
+      like_count: card.like_count,
+      board_id: card.board_id
     }));
     setCards(cardArray);
     setBoardId(boardId);
@@ -100,10 +100,8 @@ const getAllCards = (boardId) => {
 };
 
 const addNewCard = (formData) => {
-  console.log(formData);
-  console.log(selectedBoardId);
   axios
-  .post(`${url}/boards/${selectedBoardId}/cards`, formData)
+  .post(`${url}/boards/${selectedBoardId}`, formData)
   .then((response) => {
     let newCard = {
       id: response.data.card.card_id,
@@ -135,7 +133,6 @@ const editCard = (cardId, updatedData) => {
   axios
   .put(`${url}/cards/${cardId}`, updatedData)
   .then((response) => {
-    console.log(response);
     setCards((prevCards) => {
       return prevCards.map((card) => {
         if (card.id === cardId){
@@ -146,6 +143,27 @@ const editCard = (cardId, updatedData) => {
         return card
       }
     )})
+  })
+  .catch((error) => {
+    console.log(error);
+  })
+};
+
+const likeCard = (cardId, endpoint) => {
+  axios
+  .patch(`${url}/cards/${cardId}/${endpoint}`)
+  .then((response) => {
+    setCards((prevCards) => {
+      return prevCards.map((card) => {
+        if (card.id === cardId){
+          console.log(card);
+          return {
+            ...card, like_count: response.data.card.like_count
+          }
+        }
+      return card
+      })
+    })
   })
   .catch((error) => {
     console.log(error);
@@ -171,13 +189,13 @@ const addBoardBool = () => {
         boards={boards}
         deleteBoard={deleteBoard}
         editBoard={editBoard}
-        getAllCards={getAllCards}/>
+        getAllCards={getAllCards}
+        addNewCard={addNewCard}/>
         <CardList 
         cards={cards}
         deleteCard={deleteCard}
-        editCard={editCard}/>
-        <NewCard 
-        addNewCard={addNewCard}/>
+        editCard={editCard}
+        likeCard={likeCard}/>
       </main>
     </div>
   );

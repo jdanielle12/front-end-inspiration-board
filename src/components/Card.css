@@ -1,0 +1,31 @@
+.card-container {
+    max-width: 250px;
+    height: 250px;
+    margin: 20px;
+    border: 5px dotted rgb(244, 128, 166);
+    border-radius: 12px;
+    padding: 7px;
+    box-shadow: 12px 12px 2px rgb(243, 75, 131);
+    /* filter: drop-shadow(16px 16px 10px rgb(243, 75, 131)); */
+    background-color: lightpink;
+}
+
+.edit-card-button {
+
+}
+
+.card-button-container.edit-button {
+
+}
+
+.card-button-container.delete-button {
+
+}
+
+.like-count-display.like-count {
+
+}
+
+.like-count-display.unlike-count {
+
+}
