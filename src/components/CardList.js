@@ -1,10 +1,11 @@
 import React from "react";
 import PropTypes from 'prop-types';
 import Card from './Card';
+import './CardList.css';
 
 const CardList = (props) => {
     return (
-        <ul>
+        <ul className="card-list-class">
             {props.cards.map((card) => (
                 <Card
                 key={card.id}

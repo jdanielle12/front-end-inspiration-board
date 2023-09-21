@@ -4,29 +4,50 @@
     justify-content: space-around;
     flex-flow: row;
     padding: 0;
-    margin: 0;
+    margin: 3%;
     column-gap: 10px;
     border: 2px solid rgb(97, 128, 239);
     background-color: paleturquoise;
-    /* padding: 1rem 1rem 4rem; */
     filter: drop-shadow(16px 16px 10px rgb(89, 111, 236));
     border-radius: 7px;
     list-style-type: none;
     cursor: pointer;
     transition: all .2s ease-in-out;
-    max-width: 350px;
-    /* resize: both;
-    overflow: auto; */
+    min-width: 350px;
 }
 
-/* .board {
-    resize: horizontal;
-    overflow: auto;
-} */
+div.one-board-container {
+    display: flex;
+    justify-content: space-between;
+    padding: 5px;
+    border: 2px solid rgb(97, 128, 239);
+    margin: 20px 2% 0 0;
+    width: 90vw;
+    height: 20vh;
+    filter: drop-shadow(16px 16px 10px rgb(89, 111, 236));
+    border-radius: 7px;
+    list-style-type: none;
+    cursor: pointer;
+    transition: all .2s ease-in-out;
+}
+
+.all-board-buttons {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.show-cards-button-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-left: 50%;
+}
 
 .button-container{
+    display: flex;
     padding: 1px;
-    align-content: center;
+    gap: 5px;
 }
 
 .board {
@@ -41,11 +62,6 @@
     max-width: 350px;
 }
 
-/* .board-title {
-    justify-content: left;
-    text-align: left;
-} */
-
 .board-edit-button {
     background: url('/public/edit.png');
     background-size: 1rem 1rem 4rem;
@@ -54,7 +70,7 @@
     border: 0;
     height: 20px;
     width: 20px;
-    padding: 4%;
+    padding-left: 10px;
     margin: 0;
 }
 
@@ -66,19 +82,16 @@
     border: 0;
     height: 20px;
     width: 20px;
-    padding: 4%;
+    padding-right: 10px;
     margin: 0;
 }
-
-/* .show-cards-button-container {
-    position: absolute;
-} */
 
 .show-cards-button {
     background: url('/public/folder-open.png');
     background-size: 1rem 1rem 4rem;
     background-position: center;
     background-repeat: no-repeat;
+    filter: drop-shadow(6px 6px 6px rgb(2, 70, 2));
     border: 0;
     height: 20px;
     width: 25px;
@@ -111,11 +124,6 @@
     margin: 2%;
 }
 
-/* .sort-option-button {
-    cursor: pointer;
-    -webkit-appearance: none;
-} */
-
 .card-sort-button {
     background: url('/public/circle-ellipsis-vertical.png');
     background-size: 1rem 1rem 4rem;
@@ -136,15 +144,3 @@ select {
     -webkit-appearance: none;
     width: 50px;
 }
-
-/* .board.show-cards-button-container.show-cards-button {
-    background-color: #eee;
-    color: #444;
-    cursor: pointer;
-    padding: 18px;
-    width: 100%;
-    border: none;
-    text-align: left;
-    outline: none;
-    font-size: 15px;
-} */

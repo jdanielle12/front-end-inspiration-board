@@ -25,12 +25,16 @@ const Board = (props) => {
         setEditing(true);
     };
 
+    let boardContainerClass = cardDisplay? "one-board-container": "board-container";
+
     const showCards = () => {
+        console.log('made it show cards');
         if (cardDisplay){
             props.disappearCards(props.id);
         } else {
             props.getAllCards(props.id);
         };
+        console.log(boardContainerClass);
         console.log(cardDisplay);
         setCardDisplay(!cardDisplay);
     };
@@ -40,32 +44,35 @@ const Board = (props) => {
     };
 
     return (
-        <div className="board-container">
-            <div className='board'></div>
-            <h2 className='board-title'>{props.title}</h2>
-            <p className='board-description'>{props.description}</p>
-            {isEditing && (
-                <div className='edit-fields'>
-                    <input type="text" name="title" value={title} onChange={(event) => setTitle(event.target.value)}></input>
-                    <input type="text" name="description" value={description} onChange={(event) => setDescription(event.target.value)}></input>
-                    <button className="edit-board-button" onClick={editedBoard}></button>
-                </div>
-            )}
-            <div className="button-container">
-                <button className="board-delete-button" onClick={deletedBoard}></button>
-                <button className="board-edit-button" onClick={editClick}></button>
+        <div className={`${boardContainerClass}`}>
+            <div className='board'>
+                <h2 className='board-title'>{props.title}</h2>
+                <p className='board-description'>{props.description}</p>
+                {isEditing && (
+                    <div className='edit-fields'>
+                        <input type="text" name="title" value={title} onChange={(event) => setTitle(event.target.value)}></input>
+                        <input type="text" name="description" value={description} onChange={(event) => setDescription(event.target.value)}></input>
+                        <button className="edit-board-button" onClick={editedBoard}></button>
+                    </div>
+                )}
             </div>
-            <div className='show-cards-button-container'>
-                <button className='show-cards-button' onClick={showCards}></button>
-                {cardDisplay && 
-                <select className='card-sort-button' name="cards" id="card-select" onChange={(event) => {props.sortCards(event.target.value)}}>
-                    <option className='sort-option-button' value={"asc"}>Title A-Z</option>
-                    <option className='sort-option-button' value={"desc"}>Title Z-A</option>
-                </select>}
-                {cardDisplay && 
-                <button className='add-card-button' onClick={addCardButton}></button>}
-                {addingCard && <NewCard 
-                addNewCard={props.addNewCard}/>}
+            <div className='all-board-buttons'>
+                <div className="button-container">
+                    <button className="board-delete-button" onClick={deletedBoard}></button>
+                    <button className="board-edit-button" onClick={editClick}></button>
+                </div>
+                <div className='show-cards-button-container'>
+                    <button className='show-cards-button' onClick={showCards}></button>
+                    {cardDisplay && 
+                    <select className='card-sort-button' name="cards" id="card-select" onChange={(event) => {props.sortCards(event.target.value)}}>
+                        <option className='sort-option-button' value={"asc"}>Title A-Z</option>
+                        <option className='sort-option-button' value={"desc"}>Title Z-A</option>
+                    </select>}
+                    {cardDisplay && 
+                    <button className='add-card-button' onClick={addCardButton}></button>}
+                    {addingCard && <NewCard 
+                    addNewCard={props.addNewCard}/>}
+                </div>
             </div>
         </div>
     )

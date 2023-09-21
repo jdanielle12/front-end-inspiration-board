@@ -32,6 +32,7 @@ function App() {
   }, []);
 
 const getAllBoards = () => {
+  console.log('made it to all boards');
   axios
   .get(`${url}/boards`)
   .then((response) => {
