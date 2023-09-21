@@ -26,17 +26,18 @@ const Board = (props) => {
     };
 
     const showCards = () => {
-        props.getAllCards(props.id);
-        setCardDisplay(true);
+        if (cardDisplay){
+            props.disappearCards(props.id);
+        } else {
+            props.getAllCards(props.id);
+        };
+        console.log(cardDisplay);
+        setCardDisplay(!cardDisplay);
     };
 
     const addCardButton = () => {
         setAddingCard(!addingCard);
     };
-
-    // const sortCardsHandler = (sort) => {
-    //     props.sortCards(sort);
-    // };
 
     return (
         <div className="board-container">
@@ -58,8 +59,8 @@ const Board = (props) => {
                 <button className='show-cards-button' onClick={showCards}></button>
                 {cardDisplay && 
                 <select className='card-sort-button' name="cards" id="card-select" onChange={(event) => {props.sortCards(event.target.value)}}>
-                    <option value={"asc"}>Title A-Z</option>
-                    <option value={"desc"}>Title Z-A</option>
+                    <option className='sort-option-button' value={"asc"}>Title A-Z</option>
+                    <option className='sort-option-button' value={"desc"}>Title Z-A</option>
                 </select>}
                 {cardDisplay && 
                 <button className='add-card-button' onClick={addCardButton}></button>}
@@ -79,6 +80,7 @@ Board.propTypes = {
     getAllCards: PropTypes.func.isRequired,
     addNewCard: PropTypes.func.isRequired,
     sortCards: PropTypes.func.isRequired,
+    disappearCards: PropTypes.func.isRequired,
 };
 
 export default Board;

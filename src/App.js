@@ -31,6 +31,35 @@ function App() {
     })
   }, []);
 
+const getAllBoards = () => {
+  axios
+  .get(`${url}/boards`)
+  .then((response) => {
+    let boardArray = response.data.map((board) => ({
+      id: board.id,
+      title: board.title,
+      description: board.description
+    }));
+    setBoards(boardArray);
+  })
+  .catch((error) => {
+    console.log(error);
+  })
+};
+
+const getOneBoard = (boardId) => {
+  axios
+  .get(`${url}/boards/${boardId}`)
+  .then((response) => {
+    const oneBoard = [response.data.board];
+    console.log(oneBoard);
+    setBoards(oneBoard);
+  })
+  .catch((error) => {
+    console.log(error);
+  })
+};
+
 const addNewBoard = (formData) => {
   axios
   .post(`${url}/boards`, formData)
@@ -81,6 +110,7 @@ const editBoard = (boardId, updatedData) => {
 };
 
 const getAllCards = (boardId) => {
+  getOneBoard(boardId);
   axios
   .get(`${url}/boards/${boardId}/cards`)
   .then((response) => {
@@ -97,6 +127,12 @@ const getAllCards = (boardId) => {
   .catch((error) => {
     console.log(error);
   })
+};
+
+const disappearCards = (boardId) => {
+  setCards([]);
+  setBoardId(boardId);
+  getAllBoards();
 };
 
 const addNewCard = (formData) => {
@@ -207,7 +243,8 @@ const addBoardBool = () => {
         editBoard={editBoard}
         getAllCards={getAllCards}
         addNewCard={addNewCard}
-        sortCards={sortCards}/>
+        sortCards={sortCards}
+        disappearCards={disappearCards}/>
         <CardList 
         cards={cards}
         deleteCard={deleteCard}

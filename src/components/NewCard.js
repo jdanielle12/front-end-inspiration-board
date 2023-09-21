@@ -23,11 +23,11 @@ const NewCard = (props) => {
     return (
         <form onSubmit={sumbitFormData}>
             <div>
-                <label htmlFor="title">Enter your title:</label>
+                <label htmlFor="title">Title:</label>
                 <input type="text" name="title" value={formData.title} onChange={onFormChange}></input>
             </div>
             <div>
-                <label htmlFor="description">Enter your description:</label>
+                <label htmlFor="description">Description:</label>
                 <input type="text" name="description" value={formData.description} onChange={onFormChange}></input>
             </div>
             <button className="submit-card-button" type="submit"></button>

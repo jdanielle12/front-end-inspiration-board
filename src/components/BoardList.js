@@ -17,6 +17,7 @@ const BoardList = (props) => {
                 getAllCards={props.getAllCards}
                 addNewCard={props.addNewCard}
                 sortCards={props.sortCards}
+                disappearCards={props.disappearCards}
                 />
             ))}
         </ul>
@@ -36,6 +37,7 @@ BoardList.propTypes = {
     getAllCards: PropTypes.func.isRequired,
     addNewCard: PropTypes.func.isRequired,
     sortCards: PropTypes.func.isRequired,
+    disappearCards: PropTypes.func.isRequired,
 };
 
 export default BoardList;
