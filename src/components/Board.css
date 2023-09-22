@@ -91,12 +91,22 @@ div.one-board-container {
     background-size: 1rem 1rem 4rem;
     background-position: center;
     background-repeat: no-repeat;
-    /* filter: drop-shadow(6px 6px 6px rgb(2, 70, 2)); */
     border: 0;
     height: 20px;
     width: 25px;
     padding: 4%;
     margin: 0;
+    cursor: pointer;
+}
+
+.show-cards-home-button {
+    background: url('/public/house-night.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    border: 0;
+    height: 30px;
+    width: 30px;
+    margin-right: 10px;
     cursor: pointer;
 }
 

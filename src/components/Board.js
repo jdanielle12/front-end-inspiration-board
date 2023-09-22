@@ -11,6 +11,9 @@ const Board = (props) => {
     const [cardDisplay, setCardDisplay] = useState(false);
     const [addingCard, setAddingCard] = useState(false);
 
+    let boardContainerClass = cardDisplay? "one-board-container": "board-container";
+    let showCardsButtonClass = cardDisplay? "show-cards-home-button": "show-cards-button";
+
     const deletedBoard = () => {
         props.deleteBoard(props.id);
     };
@@ -25,10 +28,7 @@ const Board = (props) => {
         setEditing(true);
     };
 
-    let boardContainerClass = cardDisplay? "one-board-container": "board-container";
-
     const showCards = () => {
-        console.log('made it show cards');
         if (cardDisplay){
             props.disappearCards(props.id);
         } else {
@@ -62,7 +62,7 @@ const Board = (props) => {
                     <button className="board-edit-button" onClick={editClick}></button>
                 </div>
                 <div className='show-cards-button-container'>
-                    <button className='show-cards-button' onClick={showCards}></button>
+                    <button className={`${showCardsButtonClass}`} onClick={showCards}></button>
                     {cardDisplay && 
                     <select className='card-sort-button' name="cards" id="card-select" onChange={(event) => {props.sortCards(event.target.value)}}>
                         <option className='sort-option-button' value={"asc"}>Title A-Z</option>
