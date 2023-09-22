@@ -87,11 +87,11 @@ div.one-board-container {
 }
 
 .show-cards-button {
-    background: url('/public/folder-open.png');
+    background: url('/public/folder-open2.png');
     background-size: 1rem 1rem 4rem;
     background-position: center;
     background-repeat: no-repeat;
-    filter: drop-shadow(6px 6px 6px rgb(2, 70, 2));
+    /* filter: drop-shadow(6px 6px 6px rgb(2, 70, 2)); */
     border: 0;
     height: 20px;
     width: 25px;

@@ -1,10 +1,11 @@
 .new-board-submit-button {
     background-size: 1rem 1rem 4rem;
     width: max-content;
-    background: url('/public/approvelarge.png');
+    background: url('/public/badge-check2.png');
+    font-size: x-small;
     background-position: center;
     background-repeat: no-repeat;
-    background-size: contain;
+    /* background-size: contain; */
     margin: 0px;
     padding: 4%;
     border: 0;

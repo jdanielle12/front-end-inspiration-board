@@ -229,6 +229,7 @@ const addBoardBool = () => {
 
   return (
     <div className="App">
+      {/* <div className='custom-cursor'></div> */}
       <header>
         <h1 className='mood-board'>Mood Board</h1>
         <nav>
