@@ -8,8 +8,8 @@ const CardList = (props) => {
         <ul className="card-list-class">
             {props.cards.map((card) => (
                 <Card
-                key={card.id}
-                id={card.id}
+                key={card.card_id}
+                card_id={card.card_id}
                 title={card.title}
                 description={card.description}
                 like_count={card.like_count}
@@ -26,7 +26,7 @@ const CardList = (props) => {
 CardList.propTypes = {
     cards: PropTypes.arrayOf(
         PropTypes.shape({
-            id: PropTypes.number.isRequired,
+            card_id: PropTypes.number.isRequired,
             title: PropTypes.string.isRequired,
             description: PropTypes.string.isRequired,
             like_count: PropTypes.number.isRequired,

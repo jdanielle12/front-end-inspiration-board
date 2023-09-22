@@ -32,7 +32,6 @@ function App() {
   }, []);
 
 const getAllBoards = () => {
-  console.log('made it to all boards');
   axios
   .get(`${url}/boards`)
   .then((response) => {
@@ -53,7 +52,6 @@ const getOneBoard = (boardId) => {
   .get(`${url}/boards/${boardId}`)
   .then((response) => {
     const oneBoard = [response.data.board];
-    console.log(oneBoard);
     setBoards(oneBoard);
   })
   .catch((error) => {
@@ -116,7 +114,7 @@ const getAllCards = (boardId) => {
   .get(`${url}/boards/${boardId}/cards`)
   .then((response) => {
     let cardArray = response.data.map((card) => ({
-      id: card.card_id,
+      card_id: card.card_id,
       title: card.title,
       description: card.description,
       like_count: card.like_count,
@@ -141,7 +139,7 @@ const addNewCard = (formData) => {
   .post(`${url}/boards/${selectedBoardId}`, formData)
   .then((response) => {
     let newCard = {
-      id: response.data.card.card_id,
+      card_id: response.data.card.card_id,
       title: response.data.card.title,
       description: response.data.card.description,
       like_count: response.data.card.like_count,
@@ -158,7 +156,7 @@ const deleteCard = (cardId) => {
   axios
   .delete(`${url}/cards/${cardId}`)
   .then(() => {
-      let newCardArray = cards.filter((card) => card.id !== cardId);
+      let newCardArray = cards.filter((card) => card.card_id !== cardId);
       setCards(newCardArray);
   })
   .catch((error) => {
@@ -172,7 +170,7 @@ const editCard = (cardId, updatedData) => {
   .then((response) => {
     setCards((prevCards) => {
       return prevCards.map((card) => {
-        if (card.id === cardId){
+        if (card.card_id === cardId){
           return {
             ...card, title: updatedData.title, description: updatedData.description
           }
@@ -187,12 +185,15 @@ const editCard = (cardId, updatedData) => {
 };
 
 const likeCard = (cardId, endpoint) => {
+  console.log(cardId, 'paige wants an id');
+  console.log(endpoint, 'paige wants an endpoint');
   axios
   .patch(`${url}/cards/${cardId}/${endpoint}`)
   .then((response) => {
+    console.log(response, 'like card response');
     setCards((prevCards) => {
       return prevCards.map((card) => {
-        if (card.id === cardId){
+        if (card.card_id === cardId){
           console.log(card);
           return {
             ...card, like_count: response.data.card.like_count
@@ -212,10 +213,10 @@ const sortCards = (sort) => {
   axios
   .get(`${url}/cards?sort=${sort}`)
   .then((response) => {
-    console.log(response);
+    console.log(response, 'sort response');
     const newCardArray = response.data.filter((card) => card.board_id === selectedBoardId);
-    console.log(newCardArray);
     setCards(newCardArray);
+    console.log(newCardArray, 'paige needs to see an array of new cards');
   })
   .catch((error) => {
     console.log(error);

@@ -10,12 +10,12 @@ const Card = (props) => {
     const [description, setDescription] = useState(props.description);
 
     const deletedCard = () => {
-        props.deleteCard(props.id);
+        props.deleteCard(props.card_id);
     };
 
     const editedCard = () => {
         const updatedData = {title: title, description: description};
-        props.editCard(props.id, updatedData);
+        props.editCard(props.card_id, updatedData);
         setEditing(false);
     };
 
@@ -24,11 +24,13 @@ const Card = (props) => {
     };
 
     const likeButton = () => {
-        props.likeCard(props.id, 'like_count');
+        console.log(props.card_id);
+        console.log(props.title, props.like_count);
+        props.likeCard(props.card_id, 'like_count');
     };
 
     const unlikeButton = () => {
-        props.likeCard(props.id, 'unlike_count');
+        props.likeCard(props.card_id, 'unlike_count');
     };
 
     return (
@@ -56,7 +58,7 @@ const Card = (props) => {
 };
 
 Card.propTypes = {
-    id: PropTypes.number.isRequired,
+    card_id: PropTypes.number.isRequired,
     title: PropTypes.string.isRequired,
     description: PropTypes.string.isRequired,
     like_count: PropTypes.number.isRequired,

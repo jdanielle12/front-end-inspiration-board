@@ -67,6 +67,7 @@ const Board = (props) => {
                     <select className='card-sort-button' name="cards" id="card-select" onChange={(event) => {props.sortCards(event.target.value)}}>
                         <option className='sort-option-button' value={"asc"}>Title A-Z</option>
                         <option className='sort-option-button' value={"desc"}>Title Z-A</option>
+                        <option className='sort-option-button' value={"highestlikes"}>Most Liked</option>
                     </select>}
                     {cardDisplay && 
                     <button className='add-card-button' onClick={addCardButton}></button>}
