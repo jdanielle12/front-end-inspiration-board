@@ -10,6 +10,52 @@ html {
   height: 100vh;
 }
 
+.mood-board {
+  font-size: 80px;
+  margin-bottom: 0;
+}
+
+nav.hide-display-nav-buttons, .add-new-board-button-hide-display-nav-buttons, .board-sort-button-hide-display-nav-buttons {
+  visibility: hidden;
+  z-index: -1;
+}
+
+nav.display-nav-buttons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+  height: 4rem;
+}
+
+.add-new-board-button-display-nav-buttons {
+  background-size: 1rem 1rem 4rem;
+  width: max-content;
+  background: url('/public/square-plus.png');
+  background-position: center;
+  background-repeat: no-repeat;
+  top: 0;
+  margin: 0px;
+  padding: 4%;
+  border: 0;
+}
+
+.board-sort-button-display-nav-buttons {
+  background: url('/public/circle-ellipsis-vertical.png');
+  background-size: 1rem 1rem 4rem;
+  background-position: center;
+  background-repeat: no-repeat;
+  cursor: pointer;
+  font-size: 0;
+  border: 0;
+  height: 30px;
+  width: 30px;
+  padding: 4%;
+  margin: 2%;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+}
+
 .mood-board, .board-title, .card-title {
   font-family: 'Shadows Into Light Two', cursive;
 }
@@ -17,17 +63,6 @@ html {
 .board-description, .card-description {
   font-family: 'Dosis', sans-serif;
   font-size: 1rem;
-}
-
-.add-new-board-button {
-  background-size: 1rem 1rem 4rem;
-    width: max-content;
-    background: url('/public/square-plus.png');
-    background-position: center;
-    background-repeat: no-repeat;
-    margin: 0px;
-    padding: 4%;
-    border: 0;
 }
 
 .App {

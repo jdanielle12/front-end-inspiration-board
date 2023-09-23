@@ -14,6 +14,9 @@ function App() {
   const [addBoardButton, setBoardButton] = useState(false);
   const [cards, setCards] = useState([]);
   const [selectedBoardId, setBoardId] = useState(0);
+  const [displayNav, setDisplayNav] = useState(true);
+
+  let navHomePageButtonsClass = displayNav? "display-nav-buttons": "hide-display-nav-buttons";
 
   useEffect(() => {
     axios
@@ -80,8 +83,12 @@ const deleteBoard = (boardId) => {
   axios
   .delete(`${url}/boards/${boardId}`)
   .then(() => {
+    if (boards.length > 1) {
       let newBoardArray = boards.filter((board) => board.id !== boardId);
       setBoards(newBoardArray);
+    } else {
+      getAllBoards();
+    }
   })
   .catch((error) => {
     console.log(error);
@@ -108,8 +115,21 @@ const editBoard = (boardId, updatedData) => {
   })
 };
 
+const sortBoards = (sort) => {
+  axios
+  .get(`${url}/boards?sort=${sort}`)
+  .then((response) => {
+    console.log(response);
+    let newBoardArray = response.data;
+    setBoards(newBoardArray);
+  })
+  .catch((error) => {
+    console.log(error);
+  })
+};
+
 const getAllCards = (boardId) => {
-  getOneBoard(boardId);
+  console.log(`add-new-board-button-${navHomePageButtonsClass}`);
   axios
   .get(`${url}/boards/${boardId}/cards`)
   .then((response) => {
@@ -121,6 +141,8 @@ const getAllCards = (boardId) => {
       board_id: card.board_id
     }));
     setCards(cardArray);
+    setDisplayNav(false);
+    getOneBoard(boardId);
     setBoardId(boardId);
   })
   .catch((error) => {
@@ -132,6 +154,7 @@ const disappearCards = (boardId) => {
   setCards([]);
   setBoardId(boardId);
   getAllBoards();
+  setDisplayNav(true);
 };
 
 const addNewCard = (formData) => {
@@ -209,14 +232,11 @@ const likeCard = (cardId, endpoint) => {
 };
 
 const sortCards = (sort) => {
-  console.log(sort);
   axios
   .get(`${url}/cards?sort=${sort}`)
   .then((response) => {
-    console.log(response, 'sort response');
     const newCardArray = response.data.filter((card) => card.board_id === selectedBoardId);
     setCards(newCardArray);
-    console.log(newCardArray, 'paige needs to see an array of new cards');
   })
   .catch((error) => {
     console.log(error);
@@ -227,12 +247,18 @@ const addBoardBool = () => {
   addBoardButton ? setBoardButton(false): setBoardButton(true);
 };
 
+console.log(`add-new-board-button-${navHomePageButtonsClass}`);
+
   return (
     <div className="App">
       <header>
         <h1 className='mood-board'>Mood Board</h1>
-        <nav>
-          <button className='add-new-board-button' onClick={addBoardBool}></button>
+        <nav className={`${navHomePageButtonsClass}`}>
+          <button className={`add-new-board-button-${navHomePageButtonsClass}`} onClick={addBoardBool}></button>
+          <select className={`board-sort-button-${navHomePageButtonsClass}`} name="boards" id="board-select" onChange={(event) => {sortBoards(event.target.value)}}>
+                        <option className='sort-option-button' value={"asc"}>Title A-Z</option>
+                        <option className='sort-option-button' value={"desc"}>Title Z-A</option>
+          </select>
         </nav>
       </header>
       <main>

@@ -41,6 +41,14 @@ div.one-board-container {
     display: flex;
     flex-direction: column;
     align-items: center;
+    padding-left: 100%;
+    margin: 7px;
+}
+
+.open-show-cards-button-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     padding-left: 50%;
 }
 
@@ -51,11 +59,8 @@ div.one-board-container {
 }
 
 .board {
-    /* position: relative; */
     width: 200px;
     height: 200px;
-    /* resize: horizontal;
-    overflow: auto; */
 }
 
 .edit-fields {

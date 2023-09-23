@@ -13,6 +13,7 @@ const Board = (props) => {
 
     let boardContainerClass = cardDisplay? "one-board-container": "board-container";
     let showCardsButtonClass = cardDisplay? "show-cards-home-button": "show-cards-button";
+    let showCardButtonContainerClass = cardDisplay? "open-show-cards-button-container": "show-cards-button-container";
 
     const deletedBoard = () => {
         props.deleteBoard(props.id);
@@ -31,6 +32,7 @@ const Board = (props) => {
     const showCards = () => {
         if (cardDisplay){
             props.disappearCards(props.id);
+            setAddingCard(false);
         } else {
             props.getAllCards(props.id);
         };
@@ -61,10 +63,10 @@ const Board = (props) => {
                     <button className="board-delete-button" onClick={deletedBoard}></button>
                     <button className="board-edit-button" onClick={editClick}></button>
                 </div>
-                <div className='show-cards-button-container'>
+                <div className={`${showCardButtonContainerClass}`}>
                     <button className={`${showCardsButtonClass}`} onClick={showCards}></button>
                     {cardDisplay && 
-                    <select className='card-sort-button' name="cards" id="card-select" onChange={(event) => {props.sortCards(event.target.value)}}>
+                    <select className='card-sort-button' name="cards" id="card-select" onChange={(event) => {props.sortCards(event.target.value); setAddingCard(false);}}>
                         <option className='sort-option-button' value={"asc"}>Title A-Z</option>
                         <option className='sort-option-button' value={"desc"}>Title Z-A</option>
                         <option className='sort-option-button' value={"highestlikes"}>Most Liked</option>
