@@ -18,6 +18,10 @@ function App() {
 
   let navHomePageButtonsClass = displayNav? "display-nav-buttons": "hide-display-nav-buttons";
 
+  const addBoardBool = () => {
+    setBoardButton(!addBoardButton);
+  };
+
   useEffect(() => {
     axios
     .get(`${url}/boards`)
@@ -119,7 +123,6 @@ const sortBoards = (sort) => {
   axios
   .get(`${url}/boards?sort=${sort}`)
   .then((response) => {
-    console.log(response);
     let newBoardArray = response.data;
     setBoards(newBoardArray);
   })
@@ -129,7 +132,6 @@ const sortBoards = (sort) => {
 };
 
 const getAllCards = (boardId) => {
-  console.log(`add-new-board-button-${navHomePageButtonsClass}`);
   axios
   .get(`${url}/boards/${boardId}/cards`)
   .then((response) => {
@@ -208,16 +210,12 @@ const editCard = (cardId, updatedData) => {
 };
 
 const likeCard = (cardId, endpoint) => {
-  console.log(cardId, 'paige wants an id');
-  console.log(endpoint, 'paige wants an endpoint');
   axios
   .patch(`${url}/cards/${cardId}/${endpoint}`)
   .then((response) => {
-    console.log(response, 'like card response');
     setCards((prevCards) => {
       return prevCards.map((card) => {
         if (card.card_id === cardId){
-          console.log(card);
           return {
             ...card, like_count: response.data.card.like_count
           }
@@ -242,12 +240,6 @@ const sortCards = (sort) => {
     console.log(error);
   })
 };
-
-const addBoardBool = () => {
-  addBoardButton ? setBoardButton(false): setBoardButton(true);
-};
-
-console.log(`add-new-board-button-${navHomePageButtonsClass}`);
 
   return (
     <div className="App">

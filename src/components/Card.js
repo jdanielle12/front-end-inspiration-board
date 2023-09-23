@@ -24,8 +24,6 @@ const Card = (props) => {
     };
 
     const likeButton = () => {
-        console.log(props.card_id);
-        console.log(props.title, props.like_count);
         props.likeCard(props.card_id, 'like_count');
     };
 

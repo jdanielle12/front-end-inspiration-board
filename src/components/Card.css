@@ -11,60 +11,35 @@
 }
 
 .edit-card-button {
-    background-size: 1rem 1rem 4rem;
-    width: max-content;
-    background: url('/public/approvelarge.png');
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: contain;
+    background: center no-repeat url('/public/approvelarge.png');
     margin: 0px;
     padding: 4%;
     border: 0;
 }
 
 .edit-button {
-    background-size: 1rem 1rem 4rem;
-    width: max-content;
-    background: url('/public/edit.png');
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: contain;
+    background: center no-repeat url('/public/edit.png');
     margin: 0px;
     padding: 4%;
     border: 0;
 }
 
 .delete-button {
-    background-size: 1rem 1rem 4rem;
-    width: max-content;
-    background: url('/public/trash.png');
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: contain;
+    background: center no-repeat url('/public/trash.png');
     margin: 0px;
     padding: 4%;
     border: 0;
 }
 
 .like-count {
-    background-size: 1rem 1rem 4rem;
-    width: max-content;
-    background: url('/public/heartfilled.png');
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: contain;
+    background: center/ contain no-repeat url('/public/heartfilled.png');
     margin: 0px;
     padding: 4%;
     border: 0;
 }
 
 .unlike-count {
-    background-size: 1rem 1rem 4rem;
-    width: max-content;
-    background: url('/public/heart-crack.png');
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: contain;
+    background: center/ contain no-repeat url('/public/heart-crack.png');
     margin: 0px;
     padding: 4%;
     border: 0;

@@ -31,9 +31,7 @@ nav.display-nav-buttons {
 .add-new-board-button-display-nav-buttons {
   background-size: 1rem 1rem 4rem;
   width: max-content;
-  background: url('/public/square-plus.png');
-  background-position: center;
-  background-repeat: no-repeat;
+  background: center no-repeat url('/public/square-plus.png');
   top: 0;
   margin: 0px;
   padding: 4%;
@@ -41,28 +39,15 @@ nav.display-nav-buttons {
 }
 
 .board-sort-button-display-nav-buttons {
-  background: url('/public/circle-ellipsis-vertical.png');
-  background-size: 1rem 1rem 4rem;
-  background-position: center;
-  background-repeat: no-repeat;
+  background: center no-repeat url('/public/circle-ellipsis-vertical.png');
   cursor: pointer;
-  font-size: 0;
-  border: 0;
+  border: none;
   height: 30px;
   width: 30px;
   padding: 4%;
   margin: 2%;
   -moz-appearance: none;
   -webkit-appearance: none;
-}
-
-.mood-board, .board-title, .card-title {
-  font-family: 'Shadows Into Light Two', cursive;
-}
-
-.board-description, .card-description {
-  font-family: 'Dosis', sans-serif;
-  font-size: 1rem;
 }
 
 .App {
@@ -76,12 +61,16 @@ nav.display-nav-buttons {
   cursor: url(SKATES.png), auto;
 }
 
-.App-link {
-  color: #61dafb;
-}
-
 main {
   padding-bottom: 2.5rem;
+}
+
+.mood-board, .board-title, .card-title {
+  font-family: 'Shadows Into Light Two', cursive;
+}
+
+.board-description, .card-description {
+  font: 1rem 'Dosis', sans-serif;
 }
 
 footer {

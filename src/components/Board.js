@@ -36,8 +36,6 @@ const Board = (props) => {
         } else {
             props.getAllCards(props.id);
         };
-        console.log(boardContainerClass);
-        console.log(cardDisplay);
         setCardDisplay(!cardDisplay);
     };
 

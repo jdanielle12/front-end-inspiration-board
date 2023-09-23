@@ -65,13 +65,11 @@ div.one-board-container {
 
 .edit-fields {
     max-width: 350px;
+    min-width: 300px;
 }
 
 .board-edit-button {
-    background: url('/public/edit.png');
-    background-size: 1rem 1rem 4rem;
-    background-position: center;
-    background-repeat: no-repeat;
+    background: center no-repeat url('/public/edit.png');
     border: 0;
     height: 20px;
     width: 20px;
@@ -80,10 +78,7 @@ div.one-board-container {
 }
 
 .board-delete-button {
-    background: url('/public/trash.png');
-    background-size: 1rem 1rem 4rem;
-    background-position: center;
-    background-repeat: no-repeat;
+    background: center no-repeat url('/public/trash.png');
     border: 0;
     height: 20px;
     width: 20px;
@@ -92,10 +87,7 @@ div.one-board-container {
 }
 
 .show-cards-button {
-    background: url('/public/folder-open2.png');
-    background-size: 1rem 1rem 4rem;
-    background-position: center;
-    background-repeat: no-repeat;
+    background: center no-repeat url('/public/folder-open2.png');
     border: 0;
     height: 20px;
     width: 25px;
@@ -105,9 +97,7 @@ div.one-board-container {
 }
 
 .show-cards-home-button {
-    background: url('/public/house-night.png');
-    background-position: center;
-    background-repeat: no-repeat;
+    background: center no-repeat url('/public/house-night.png');
     border: 0;
     height: 30px;
     width: 30px;
@@ -116,10 +106,7 @@ div.one-board-container {
 }
 
 .edit-board-button {
-    background: url('/public/approvelarge.png');
-    background-size: 1rem 1rem 4rem;
-    background-position: center;
-    background-repeat: no-repeat;
+    background: center no-repeat url('/public/approvelarge.png');
     border: 0;
     height: 20px;
     width: 20px;
@@ -128,10 +115,7 @@ div.one-board-container {
 }
 
 .add-card-button {
-    background: url('/public/square-plus.png');
-    background-size: 1rem 1rem 4rem;
-    background-position: center;
-    background-repeat: no-repeat;
+    background: center no-repeat url('/public/square-plus.png');
     border: 0;
     height: 30px;
     width: 30px;
@@ -140,10 +124,7 @@ div.one-board-container {
 }
 
 .card-sort-button {
-    background: url('/public/circle-ellipsis-vertical.png');
-    background-size: 1rem 1rem 4rem;
-    background-position: center;
-    background-repeat: no-repeat;
+    background: center no-repeat url('/public/circle-ellipsis-vertical.png');
     cursor: pointer;
     font-size: 0;
     border: 0;
