@@ -6,7 +6,7 @@ import NewBoard from './components/NewBoard';
 import CardList from './components/CardList';
 
 
-const url = "http://localhost:5000";
+const url = process.env.REACT_APP_BACKEND_URL;
 
 
 function App() {
